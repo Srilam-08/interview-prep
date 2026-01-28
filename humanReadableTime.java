@@ -32,3 +32,28 @@ public class Main {
         }
     }
 }
+/*
+Optimized 
+public static String makeReadable(int seconds) {
+        return String.format(
+            "%02d:%02d:%02d",
+            seconds / 3600,
+            (seconds / 60) % 60,
+            seconds % 60
+        );
+    }
+⏱️ Time Complexity
+O(1) — Constant Time
+Why?
+Fixed number of arithmetic operations (/, %)
+Fixed-size formatting (HH:MM:SS)
+No loops
+No recursion
+⏱ Execution time does not depend on input size
+💾 Space Complexity
+O(1) — Constant Space
+Why?
+Only a few integer variables
+Output string length is always 8 characters
+No additional data structures
+*/
