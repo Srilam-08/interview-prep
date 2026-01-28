@@ -2,32 +2,25 @@ public class Main {
 
     // Compresses the character array in-place
     public static int compress(char[] chars) {
-
-        int write = 0;  // index to write compressed result
-        int i = 0;      // index to read characters
-
-        while (i < chars.length) {
-            char current = chars[i];
-            int count = 0;
-
-            // Count repeating characters
-            while (i < chars.length && chars[i] == current) {
-                i++;
+        int write = 0;
+        int read = 0;
+        while(read<chars.length) {
+            char current = chars[read];
+            int count = 1;
+            read++;
+            while(read<chars.length && chars[read] == current) {
+                read++;
                 count++;
             }
-
-            // Write the character
             chars[write++] = current;
 
-            // Write the count if greater than 1
-            if (count > 1) {
+            if(count>1) {
                 String num = String.valueOf(count);
-                for (char c : num.toCharArray()) {
+                for(char c: num.toCharArray()){
                     chars[write++] = c;
                 }
             }
         }
-
         return write;
     }
 
@@ -46,3 +39,18 @@ public class Main {
         }
     }
 }
+/*
+⏱️ Time Complexity
+O(n)
+n = length of chars
+Each character is:
+read once by the read pointer
+written at most once by the write pointer
+Inner while loop does not cause extra work overall because read only moves forward
+👉 This is a classic two-pointer linear scan
+💾 Space Complexity
+O(1) (Constant Space)
+Compression is done in-place
+Only a few integer variables (read, write, count)
+Temporary string for count has max length = log₁₀(n) → constant for constraints
+*/
