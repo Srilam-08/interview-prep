@@ -43,4 +43,26 @@ public class Main {
 Metric	Complexity
 Time	O(n) → iterate through each character once
 Space	O(1) → fixed-size array of 36 integers
+import java.util.HashSet;
+import java.util.Set;
+
+public class CountDuplicates {
+    public static int duplicateCount(String text) {
+        text = text.toLowerCase();
+        Set<Character> seen = new HashSet<>();
+        Set<Character> duplicates = new HashSet<>();
+
+        for (char c : text.toCharArray()) {
+            if (!seen.add(c)) {   // if already seen
+                duplicates.add(c); // add to duplicates
+            }
+        }
+
+        return duplicates.size();
+    }
+}
+⏱ Complexity
+Metric	Complexity
+Time	O(n) → iterate through all characters once
+Space	O(k) → k = number of distinct characters (≤ 36 letters + digits)
 */
