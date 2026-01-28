@@ -1,34 +1,27 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Main {
 
-    // Function to count distinct duplicates (case-insensitive)
     public static int countDuplicates(String text) {
+        // Only 26 letters + 10 digits = 36 possible characters
+        int[] freq = new int[36];
+        int duplicates = 0;
 
-        Map<Character, Integer> freq = new HashMap<>();
-
-        // Convert to lowercase to ignore case
-        text = text.toLowerCase();
-
-        // Count frequency of each character
         for (char c : text.toCharArray()) {
-            freq.put(c, freq.getOrDefault(c, 0) + 1);
-        }
-
-        // Count how many characters occur more than once
-        int count = 0;
-        for (int value : freq.values()) {
-            if (value > 1) {
-                count++;
+            int index;
+            if (Character.isDigit(c)) {
+                index = c - '0' + 26; // digits mapped to 26-35
+            } else {
+                index = Character.toLowerCase(c) - 'a'; // letters mapped to 0-25
             }
+
+            freq[index]++;
+            // Increment duplicates count **only when freq becomes 2**
+            if (freq[index] == 2) duplicates++;
         }
 
-        return count;
+        return duplicates;
     }
 
     public static void main(String[] args) {
-
         String[] tests = {
             "abcde",
             "aabbcde",
@@ -44,3 +37,10 @@ public class Main {
         }
     }
 }
+
+/*
+⏱ Complexity
+Metric	Complexity
+Time	O(n) → iterate through each character once
+Space	O(1) → fixed-size array of 36 integers
+*/
