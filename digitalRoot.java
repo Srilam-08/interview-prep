@@ -35,3 +35,16 @@ public class Main {
         }
     }
 }
+
+/*
+O(1) — Constant Time
+Uses a fixed number of arithmetic operations
+No loops
+No recursion
+Execution time is independent of the size of n
+💾 Space Complexity
+O(1) — Constant Space
+Uses only a few integer variables
+No additional data structures
+No recursion stack
+*/
