@@ -25,3 +25,25 @@ public class Main {
         System.out.println("After Conversion: " + convert0To5(num)); // 15125
     }
 }
+
+/*
+| Metric | Complexity                                  |
+| ------ | ------------------------------------------- |
+| Time   | **O(log₁₀(n))** → number of digits in `num` |
+| Space  | **O(1)** → only a few integer variables     |
+
+Optimized
+    public class Main {
+
+    static int convert0To5(int num) {
+        // Convert number to string, replace '0' with '5', parse back to int
+        return Integer.parseInt(String.valueOf(num).replace('0', '5'));
+    }
+
+    public static void main(String[] args) {
+        int num = 10120;
+        System.out.println("Original Number: " + num);
+        System.out.println("After Conversion: " + convert0To5(num)); // 15125
+    }
+}
+*/
