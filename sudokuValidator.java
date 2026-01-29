@@ -98,4 +98,25 @@ class Solution {
 
 Time complexity = O(1)
 Space complexity = O(1)
+
+public class SudokuValidator {
+    public static boolean check(int[][] sudoku) {
+        boolean[][] rows = new boolean[9][9];
+        boolean[][] columns = new boolean[9][9];
+        boolean[][] boxes = new boolean[9][9];
+        for(int i=0; i<9; i++) {
+          for(int j=0; j<9; j++) {
+            int value = sudoku[i][j];
+            if (value == 0) return false;
+            int num = value - 1;
+            int boxIndex = (i/3)*3 + j/3;
+            if(rows[i][num] || columns[j][num] || boxes[boxIndex][num]) {
+              return false;
+            }
+            rows[i][num] = columns[j][num] = boxes[boxIndex][num] = true;
+          }
+        }
+      return true;
+    }
+}
 */
