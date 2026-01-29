@@ -85,3 +85,35 @@ class Solution {
         return result;
     }
 }
+
+/*
+class Solution {
+    int i = 0;
+
+    public NestedInteger deserialize(String s) {
+        if (s.charAt(i) != '[') return new NestedInteger(num(s));
+
+        NestedInteger ni = new NestedInteger();
+        i++; // skip '['
+
+        while (s.charAt(i) != ']') {
+            if (s.charAt(i) == ',') i++;
+            else ni.add(deserialize(s));
+        }
+        i++; // skip ']'
+        return ni;
+    }
+
+    int num(String s) {
+        int sign = 1, n = 0;
+        if (s.charAt(i) == '-') { sign = -1; i++; }
+        while (i < s.length() && Character.isDigit(s.charAt(i)))
+            n = n * 10 + s.charAt(i++) - '0';
+        return sign * n;
+    }
+}
+📌 Summary (Codewars style)
+Metric	Complexity
+Time	O(n)
+Space	O(n)
+*/
