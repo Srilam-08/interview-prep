@@ -60,3 +60,61 @@ public class Main {
         System.out.println("Last Index: " + result[1]);
     }
 }
+
+/*
+public class Main {
+
+    public static int[] firstAndLast(int[] nums, int target) {
+        return new int[] {
+            findFirst(nums, target),
+            findLast(nums, target)
+        };
+    }
+
+    private static int findFirst(int[] nums, int target) {
+        int left = 0, right = nums.length - 1, result = -1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] >= target) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+
+            if (nums[mid] == target) result = mid;
+        }
+        return result;
+    }
+
+    private static int findLast(int[] nums, int target) {
+        int left = 0, right = nums.length - 1, result = -1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] <= target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+
+            if (nums[mid] == target) result = mid;
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 4, 4, 4, 5, 7};
+        int target = 4;
+
+        int[] res = firstAndLast(nums, target);
+        System.out.println("First: " + res[0] + ", Last: " + res[1]);
+    }
+}
+⏱ Complexity
+Metric	Value
+Time	O(log n)
+Space	O(1)
+    */
