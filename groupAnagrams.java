@@ -36,3 +36,20 @@ public class Main {
         }
     }
 }
+/*
+import java.util.*;
+
+class Main {
+    static List<List<String>> groupAnagrams(String[] a) {
+        Map<String, List<String>> m = new HashMap<>();
+        for (String s : a) {
+            int[] f = new int[26];
+            for (char c : s.toCharArray()) f[c - 'a']++;
+            m.computeIfAbsent(Arrays.toString(f), k -> new ArrayList<>()).add(s);
+        }
+        return new ArrayList<>(m.values());
+    }
+}
+O(n * k)
+    (n = number of strings, k = average string length)
+    */
