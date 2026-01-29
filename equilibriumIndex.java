@@ -37,3 +37,25 @@ public class Main {
         }
     }
 }
+
+/* 
+public class Main {
+    public static int findEvenIndex(int[] arr) {
+        long total = 0;
+        for (int n : arr) total += n;
+
+        long left = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (left == total - left - arr[i]) {
+                return i;
+            }
+            left += arr[i];
+        }
+        return -1;
+    }
+}
+⏱ Complexity (Interview-ready)
+Metric	Value
+Time	O(n)
+Space	O(1)
+    */
